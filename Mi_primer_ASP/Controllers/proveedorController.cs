@@ -141,9 +141,9 @@ namespace Mi_primer_ASP.Controllers
                                precioUnitario = producto.percio_unitario
                            };
             }
-                
+            return View(query);
         }
-        return View(query);
+        
 
     }
 
