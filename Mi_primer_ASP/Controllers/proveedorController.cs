@@ -128,7 +128,7 @@ namespace Mi_primer_ASP.Controllers
         }
         public ActionResult DetalleProveedorProducto()
         {
-            using (var db = new inventarioEntities1())
+            var db = new inventarioEntities1();
             {
                 var query = from proveedor in db.proveedor
                            join producto in db.producto on proveedor.id equals producto.id_proveedor
@@ -137,11 +137,12 @@ namespace Mi_primer_ASP.Controllers
                                nombreProveedor = proveedor.nombre,
                                nombreProducto = producto.nombre,
                                telefonoProveedor = proveedor.telefono,
-                               descripcion = producto.descripcion,
+                               descripcionProducto = producto.descripcion,
                                precioUnitario = producto.percio_unitario
                            };
+                return View(query);
             }
-            return View(query);
+           
         }
         
 

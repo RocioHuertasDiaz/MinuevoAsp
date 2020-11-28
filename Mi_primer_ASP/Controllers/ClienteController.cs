@@ -56,7 +56,7 @@ namespace Mi_primer_ASP.Controllers
                     return View(findClient);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 ModelState.AddModelError("", "Error" + ex);
                 return View();
@@ -124,6 +124,25 @@ namespace Mi_primer_ASP.Controllers
             }
         }
 
+        public ActionResult ReporteClienteCompra()
+        {
+            var db = new inventarioEntities1();
+            {
+                var query = from cliente in db.cliente
+                            join compra in db.compra on cliente.id equals compra.id
+                            select new ClienteCompra
+                            {
+                                nombreCliente = cliente.nombre,
+                                emailCliente = cliente.email,
+                                FechaCompra = compra.fecha,
+                                TotalCompra = compra.total,
+                                idUsuario = compra.id
+                            };
+                return View(query);
+            }
 
+
+
+        }
     }
 }

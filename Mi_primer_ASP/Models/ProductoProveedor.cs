@@ -11,7 +11,7 @@ namespace Mi_primer_ASP.Models
         public string nombreProveedor { get; set; }
         public string telefonoProveedor { get; set; }
         public Nullable<int> precioUnitario { get; set; }
-        public string descripcion { get; set; }
+        public string descripcionProducto { get; set; }
 
     }
    

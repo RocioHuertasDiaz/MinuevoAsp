@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Mi_primer_ASP.Models.ProductoProveedor>
+
+@{
+    ViewBag.Title = "DetalleProveedorProducto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    
+   <h2>Detalle producto Proveedor</h2>
+
+<table class= "table">
+    <thead>
+        <tr>
+            <th>Producto</th>
+            <th>Descripción</th>
+            <th>Valor Unitario</th>
+            <th>Proveedor</th>
+            <th>Teléfono</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{  foreach(var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(ModelItem => item.nombreProducto)</td>
+                    <td>@Html.DisplayFor(ModelItem => item.descripcionProducto)</td>
+                    <td>@Html.DisplayFor(ModelItem => item.precioUnitario)</td>
+                    <td>@Html.DisplayFor(ModelItem => item.nombreProveedor)</td>
+                    <td>@Html.DisplayFor(ModelItem => item.telefonoProveedor)</td>
+
+                </tr>
+            }
+        }
+    </tbody>
+</table>

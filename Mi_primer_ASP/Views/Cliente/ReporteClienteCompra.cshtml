@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Mi_primer_ASP.Models.ClienteCompra>
+
+@{
+    ViewBag.Title = "ReporteClienteCompra";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+        <h2>Reporte Compras por cliente</h2>
+
+<table class= "table">
+    <thead>
+        <tr>
+            <th>Nombre del Ciente</th>
+            <th>Email del Ciente</th>
+            <th>Fecha Compra</th>
+            <th>Total Compra</th>
+            <th>Usuario</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ foreach(var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(ModelItem => item.nombreCliente)</td>
+                    <td>@Html.DisplayFor(ModelItem => item.emailCliente)</td>
+                    <td>@Html.DisplayFor(ModelItem => item.FechaCompra)</td>
+                    <td>@Html.DisplayFor(ModelItem => item.TotalCompra)</td>
+                    <td>@Html.DisplayFor(ModelItem => item.idUsuario)</td>
+
+
+                </tr>
+            }
+          }
+    </tbody>
+    
+</table>
