@@ -1,0 +1,50 @@
+﻿
+@model List<Mi_primer_ASP.Models.producto>
+@{ 
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ReporteProductos</title>
+    @Styles.Render("~/Content/Css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="container">
+        <h2>Reporte de productos</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Descripcion</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var element in Model)
+                {
+                <tr>
+                    <td>@element.nombre</td>
+                    <td>@element.percio_unitario</td>
+                    <td>@element.descripcion</td>
+                </tr>
+                }
+
+            </tbody>
+            <tr>
+                <td></td>
+            </tr>
+        </table>
+        <p>
+            Texto de prueba para PDF
+        </p>
+        <img scr="https://svgsilh.com/svg/2029245.svg" alt="GATO" />
+
+    </div>
+    @Styles.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>

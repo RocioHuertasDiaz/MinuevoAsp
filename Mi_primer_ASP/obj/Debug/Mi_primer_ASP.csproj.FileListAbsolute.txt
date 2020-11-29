@@ -113,3 +113,4 @@ C:\Users\Usuario\source\repos\Mi_primer_ASP\Mi_primer_ASP\bin\System.Buffers.xml
 C:\Users\Usuario\source\repos\Mi_primer_ASP\Mi_primer_ASP\bin\System.Memory.xml
 C:\Users\Usuario\source\repos\Mi_primer_ASP\Mi_primer_ASP\bin\System.Numerics.Vectors.xml
 C:\Users\Usuario\source\repos\Mi_primer_ASP\Mi_primer_ASP\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Usuario\source\repos\Mi_primer_ASP\Mi_primer_ASP\bin\Rotativa.dll
