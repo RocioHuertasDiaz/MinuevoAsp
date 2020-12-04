@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Web;
+using System.IO;
 using System.Web.Mvc;
 using Mi_primer_ASP.Models;
+using Rotativa;
 
 namespace Mi_primer_ASP.Controllers
 {
@@ -141,8 +144,54 @@ namespace Mi_primer_ASP.Controllers
                 return View(query);
             }
 
+        }
+        public ActionResult uploadCSV()
+        {
+            return View();
+        }
+        [HttpPost]
 
+        public ActionResult uploadCSV(HttpPostedFileBase fileForm)
+        {
+            string filePath = string.Empty;
 
+            if (fileForm != null)
+            {
+                string path = Server.MapPath("~/uploads/");
+
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+
+                filePath = path + Path.GetFileName(fileForm.FileName);
+                string extension = Path.GetExtension(fileForm.FileName);
+                fileForm.SaveAs(filePath);
+
+                String csvData = System.IO.File.ReadAllText(filePath);
+                foreach (string row in csvData.Split('\n'))
+                {
+                    if (!string.IsNullOrEmpty(row))
+                    {
+                        var newCliente = new cliente
+                        {
+                            id = Convert.ToInt32(row.Split(';')[0]),
+                            nombre = row.Split(';')[1],
+                            documento = row.Split(';')[2],
+                            email = row.Split(';')[3],
+                           
+
+                        };
+                        using (var db = new inventarioEntities1())
+                        {
+                            db.cliente.Add(newCliente);
+                            db.SaveChanges();
+
+                        }
+                    }
+                }
+            }
+            return View();
         }
     }
 }

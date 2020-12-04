@@ -31,5 +31,6 @@ namespace Mi_primer_ASP.Models
         public virtual DbSet<producto_compra> producto_compra { get; set; }
         public virtual DbSet<proveedor> proveedor { get; set; }
         public virtual DbSet<usuario> usuario { get; set; }
+        public virtual DbSet<producto_imagen> producto_imagen { get; set; }
     }
 }
