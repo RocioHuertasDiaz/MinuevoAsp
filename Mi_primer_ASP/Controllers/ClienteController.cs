@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using Mi_primer_ASP.Models;
 using Rotativa;
 
+
 namespace Mi_primer_ASP.Controllers
 {
     public class ClienteController : Controller
@@ -145,6 +146,7 @@ namespace Mi_primer_ASP.Controllers
             }
 
         }
+        
         public ActionResult uploadCSV()
         {
             return View();
@@ -192,6 +194,18 @@ namespace Mi_primer_ASP.Controllers
                 }
             }
             return View();
+        }
+        public ActionResult DescargaCliente()
+        {
+            using(var db = new inventarioEntities1())
+            {
+                return View(db.cliente.ToList());
+
+            }
+        }
+        public ActionResult ImprimirReporteCliente()
+        {
+            return new ActionAsPdf("DescargaCliente") { FileName = "ReporteCliente.pdf" };
         }
     }
 }

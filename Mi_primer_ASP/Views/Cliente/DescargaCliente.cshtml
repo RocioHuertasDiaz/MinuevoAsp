@@ -1,0 +1,51 @@
+﻿@model List<Mi_primer_ASP.Models.cliente>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DescargaCliente</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div>
+        <div class="container">
+            <h2>Reporte de clientes</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Documento</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var element in Model)
+                    {
+                    <tr>
+                        <td>@element.nombre</td>
+                        <td>@element.documento</td>
+                        <td>@element.email</td>
+                    </tr>
+                    }
+                </tbody>
+                
+            </table>
+            <p>
+                Reporte Actualizado
+            </p>
+            <img src="https://www.vernonproducciones.com/wp-content/uploads/2018/11/corazon-300x243.png" alt="Firma"
+
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>

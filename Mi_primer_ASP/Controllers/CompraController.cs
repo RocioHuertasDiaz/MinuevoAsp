@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Mi_primer_ASP.Models;
+using Rotativa;
 
 namespace Mi_primer_ASP.Controllers
 {
@@ -157,6 +158,6 @@ namespace Mi_primer_ASP.Controllers
                 throw;
             }
         }
-
+        
     }
 }
