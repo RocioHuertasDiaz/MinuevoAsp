@@ -49,9 +49,15 @@
         </dt>
 
         <dd>
-            
-        
+            @{
+                if (!string.IsNullOrEmpty(ViewBag.imagen))
+                {
+                    <img src="@Url.Content("~/Uploads/"+ViewBag.imagen)" class="img-responsive" />
+                }
+            }
+
         </dd>
+
 
     </dl>
 </div>

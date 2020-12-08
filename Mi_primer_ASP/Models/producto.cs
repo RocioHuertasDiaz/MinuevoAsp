@@ -11,7 +11,8 @@ namespace Mi_primer_ASP.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class producto
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,10 +23,22 @@ namespace Mi_primer_ASP.Models
         }
     
         public int id { get; set; }
+        [Required]
+        [StringLength(5, ErrorMessage ="Elnombre supera el limite de caracteres")]
         public string nombre { get; set; }
+        
+        [Required]
         public Nullable<int> percio_unitario { get; set; }
+
+        [Required]
+        [MaxLength(length: 10, ErrorMessage = "el campo deber se máximo de 10 caracteres")]
+        [MinLength(length: 5, ErrorMessage = "el campo deber se mínimo de 10 caracteres")]
         public string descripcion { get; set; }
+        
+        [Required(ErrorMessage ="La cantidad no debe estar vacía")]
         public Nullable<int> cantidad { get; set; }
+        
+        [Required]
         public Nullable<int> id_proveedor { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

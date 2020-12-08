@@ -165,31 +165,6 @@ namespace Mi_primer_ASP.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult create_imagen(producto newProduct,HttpPostedFileBase fileImage)
-        {
-            if (!ModelState.IsValid)
-                return View();
-            try
-            {
-                using (var db = new inventarioEntities1())
-                {
-                    db.producto.Add(newProduct);
-                    db.SaveChanges();
-                    int id = newProduct.id;
-                    return RedirectToAction("Index");
-                }
-            }
-            catch (Exception ex)
-            {
-                ModelState.AddModelError("", "Error" + ex);
-                return View();
-                throw;
-            }
-
-        }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-
         public ActionResult Create_imagen(producto newProduct, HttpPostedFileBase fileImage)
         {
             if (!ModelState.IsValid)
@@ -201,6 +176,7 @@ namespace Mi_primer_ASP.Controllers
                     db.producto.Add(newProduct);
                     db.SaveChanges();
                     int id_producto = newProduct.id;
+
                     string filePath = string.Empty;
                     string nameFile = string.Empty;
                     if (fileImage != null)

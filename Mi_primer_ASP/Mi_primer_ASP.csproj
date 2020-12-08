@@ -323,7 +323,6 @@
     <Content Include="Views\Producto\create_imagen.cshtml" />
     <Content Include="Views\proveedor\uploadCSV.cshtml" />
     <Content Include="Views\Cliente\uploadCSV.cshtml" />
-    <Content Include="Views\Compra\ReporteCompras.cshtml" />
     <Content Include="Views\Cliente\DescargaCliente.cshtml" />
   </ItemGroup>
   <ItemGroup>
